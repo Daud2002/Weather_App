@@ -1,0 +1,67 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.background_div h1{
+color: rgb(189,210,104);
+outline: black;
+text-shadow: 2px 2px 4px #000000;
+}
+
+
+.searching_div input{
+    outline: rgb(189,210,104);;
+}
+.searching_div button{
+    margin-left: 1rem;
+    border: 1px solid rgb(189,210,104);;
+    border-radius: 3px;
+    padding: 5px 15px;
+    background-color: rgb(189,210,104);
+    color: white;
+    font-weight: bolder;
+}
+.searching_div button:hover{
+    background-color: rgb(175, 199, 80);
+    color: rgb(242, 242, 242);
+}
+
+.background_div {
+    transition: background 0.5s ease;
+}
+
+.background_div.clear {
+    background: url(https://images.unsplash.com/photo-1601297183305-6df142704ea2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xlYXIlMjBza3l8ZW58MHx8MHx8fDA%3D) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.background_div.clouds {
+    background: url(https://t3.ftcdn.net/jpg/03/02/03/70/360_F_302037028_WgdzBqp7MCTF0iITajUUVryCKJsyjOE6.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.background_div.rain {
+    background: url(https://img.freepik.com/free-photo/weather-effects-composition_23-2149853295.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.background_div.thunderstorm {
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5pNWMH5Rfpul1_dL-iDQWacCY5o4c5AYDgQ&s) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.background_div.snow {
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjfeeNXZJXna3q01_wdUDK6-Gf57TPqYNF1w&s) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.background_div.mist {
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaBDdkijZjF_V_Erb5QWRXQWssFjr48tQDNw&s) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.background_div.default {
+    background: url(https://www.novascotia.com/sites/default/files/2022-09/Rainbow_Skyline-Trail-1920x1080.jpg) no-repeat center center fixed;
+    background-size: cover;
+}

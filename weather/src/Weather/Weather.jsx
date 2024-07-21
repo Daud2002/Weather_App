@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 export default function Weather() {
     let [city, setcity] = useState("");
     let [wdetails, setwdetails] = useState();
-    let [isloading, Setisloading] = useState(true);
+    let [isloading, Setisloading] = useState(false);
     const [backgroundClass, setBackgroundClass] = useState("default");
 
 
@@ -16,20 +16,20 @@ export default function Weather() {
             .then((res) => res.json())
             .then((finalres) => {
                 console.log(finalres.cod)
-                if (finalres.cod === 404) {
-                    setwdetails(undefined)
+                if (finalres.cod !== 200) {
+                    setwdetails(null)
                 }
                 else {
                     setwdetails(finalres)
                     setcity('')
                 }
                 Setisloading(false)
-
             }
             )
             .catch((error) => {
                 console.error('Error fetching data:', error);
                 Setisloading(false);
+                setwdetails(null)
             });
     }
     useEffect(() => {
@@ -72,7 +72,6 @@ export default function Weather() {
                 </div>
                 <div className='searching_div '>
                     <form onSubmit={getData} className='flex flex-row justify-center items-center'>
-                        {/* <input type="text" value={city} onChange={(e) => setcity(e.target.value)} placeholder='City Name' className='rounded-md'/> */}
                         <TextField id="outlined-basic" label="City Name" variant="outlined" value={city} onChange={(e) => setcity(e.target.value)} className=' backdrop-blur-2xl'/>
                         <button className='py-2'>Submit</button>
                     </form>
@@ -81,11 +80,14 @@ export default function Weather() {
                 <div className='show_data flex flex-col items-center text-center my-1 justify-center relative backdrop-blur-xl w-[90%] md:w-[35%] h-[50vh] border border-[black] gap-4 rounded-md'>
 
                     {
-                        wdetails !== undefined
+                        isloading ? 
+                                <img src="https://i.gifer.com/ZKZg.gif" width={150} className={`absolute ${isloading ? '' : 'hidden'}`} />
+                        :(wdetails
                             ?
                             <>
-                                <img src="https://app.smartperks.net/emp9/cdn/images/loading-icon1.gif" width={300} className={`absolute ${isloading ? '' : 'hidden'}`} />
-                                <h2 className='text-[white] text-[30px] underline'>{wdetails.name}<span className={`${wdetails.sys.country !== undefined ? ' p-2 text-green-500  bg-slate-500 ml-4 font-bold border rounded-md' : ''}`}>
+                                <h2 className='text-[white] text-[30px] underline'>
+                                {wdetails.name}
+                                <span className={`${wdetails.sys.country !== undefined ? ' p-2 text-green-500  bg-slate-500 ml-4 font-bold border rounded-md' : ''}`}>
                                 {wdetails.sys.country}
                                 </span></h2>
                                 <h3 className='text-white text-[25px]'>{wdetails.main.temp}&deg;</h3>
@@ -94,7 +96,7 @@ export default function Weather() {
                             </>
                             :
                     'No Data Founds'
-                            
+                        )
                     }
 
                 </div>

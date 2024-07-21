@@ -8,6 +8,11 @@ color: rgb(189,210,104);
 outline: black;
 text-shadow: 2px 2px 4px #000000;
 }
+.background_div p{
+color: rgb(189,210,104);
+outline: black;
+text-shadow: 2px 2px 4px #000000;
+}
 
 
 .searching_div input{

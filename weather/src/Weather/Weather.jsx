@@ -66,8 +66,9 @@ export default function Weather() {
     return (
         <div className={`background_div ${backgroundClass} w-[100%] h-[100vh]`}>
             <div className='full_data flex justify-center items-center flex-col gap-8'>
-                <div className='mt-12'>
+                <div className='mt-12 flex flex-col justify-center items-center'>
                     <h1 className='font-bold text-[60px] underline'>Weather</h1>
+                    <p className='shadow-xl font-serif'>By Daud Mir</p>
                 </div>
                 <div className='searching_div '>
                     <form onSubmit={getData} className='flex flex-row justify-center items-center'>
@@ -77,14 +78,14 @@ export default function Weather() {
                     </form>
 
                 </div>
-                <div className='show_data flex flex-col items-center text-center my-1 justify-center relative backdrop-blur-xl w-[25%] h-[50vh] border border-[black] gap-4 rounded-md'>
+                <div className='show_data flex flex-col items-center text-center my-1 justify-center relative backdrop-blur-xl w-[90%] md:w-[35%] h-[50vh] border border-[black] gap-4 rounded-md'>
 
                     {
                         wdetails !== undefined
                             ?
                             <>
                                 <img src="https://app.smartperks.net/emp9/cdn/images/loading-icon1.gif" width={300} className={`absolute ${isloading ? '' : 'hidden'}`} />
-                                <h2 className='text-[white] underline'>{wdetails.name}<span className={`${wdetails.sys.country !== undefined ? 'bg-[yellow] text-[black] ml-4 font-bold border rounded-md' : ''}`}>
+                                <h2 className='text-[white] text-[30px] underline'>{wdetails.name}<span className={`${wdetails.sys.country !== undefined ? ' p-2 text-green-500  bg-slate-500 ml-4 font-bold border rounded-md' : ''}`}>
                                 {wdetails.sys.country}
                                 </span></h2>
                                 <h3 className='text-white text-[25px]'>{wdetails.main.temp}&deg;</h3>
